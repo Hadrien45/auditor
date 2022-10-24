@@ -85,7 +85,7 @@ trait AuditTrait
 
             case DoctrineHelper::getDoctrineType('INTEGER'):
             case DoctrineHelper::getDoctrineType('SMALLINT'):
-                $convertedValue = (int) $value; // @phpstan-ignore-line
+                $convertedValue = (int) ($value instanceof \BackedEnum ? $value->value : $value); // @phpstan-ignore-line
 
                 break;
 
